@@ -1,0 +1,35 @@
+{
+  "name": "getbettr.github.io",
+  "version": "0.0.0",
+  "description": "promotional website for the bettr app",
+  "main": "index.js",
+  "scripts": {
+  },
+  "author": "Asa Williams",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "bower": "^1.3.12",
+    "browser-sync": "^1.9.1",
+    "gulp": "^3.8.10",
+    "gulp-bower": "0.0.10",
+    "gulp-concat": "^2.4.3",
+    "gulp-cssmin": "^0.1.6",
+    "gulp-declare": "^0.3.0",
+    "gulp-filter": "^2.0.0",
+    "gulp-handlebars": "^3.0.1",
+    "gulp-jscs": "^1.4.0",
+    "gulp-jshint": "^1.9.0",
+    "gulp-less": "^2.0.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-sourcemaps": "^1.3.0",
+    "gulp-uglify": "^1.1.0",
+    "gulp-watch": "^4.1.0",
+    "gulp-wrap": "^0.10.1",
+    "jshint-stylish": "^1.0.0",
+    "less-plugin-autoprefix": "^1.3.0",
+    "less-plugin-clean-css": "^1.4.0",
+    "logfmt": "~1.1.2",
+    "main-bower-files": "^2.5.0"
+  }
+}

@@ -1,0 +1,135 @@
+html {
+	height: 100%;
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	height: 100%;
+	background-color: #353b4a;
+}
+
+.main {
+	display: table;
+	height: 100%;
+	width: 100%;
+	margin-top: 20px;
+	text-align: center;
+	color: #fff;
+}
+
+.iphone {
+	display: none;
+}
+
+.info {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.app-name {
+	margin-bottom: 60px;
+	font-size: 48px;
+
+	.name {
+		display: block;
+	}
+}
+
+.app-icon {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	background: url('../imgs/iTunesArtwork@2x.png') no-repeat;
+	background-size: 200px;
+	border-radius: 15px;
+}
+
+.description {
+	display: none;
+}
+
+.app-store-btn {
+	display: inline-block;
+	width: 135px;
+	height: 40px;
+	background-image: url('../imgs/app-store-badge.svg');
+}
+
+// tablet
+@media only screen and (min-width: 650px) {
+	.main {
+		width: initial;
+		max-width: 768px;
+		margin: 20px auto;
+	}
+
+	.info {
+		display: table-cell;
+		max-width: 540px;
+		padding-left: 50px;
+		margin-top: 50px;
+		text-align: left;
+	}
+
+	.app-name .name {
+		display: none;
+	}
+
+	.iphone {
+		float: left;
+		display: block;
+		width: 320px;
+		height: 677px;
+		padding: 100px 28px;
+		background: url('../imgs/iphone-frame.png') no-repeat;
+	}
+
+	.screenshot {
+		width: 270px;
+		height: 480px;
+		background: url('../imgs/screenshot.png') no-repeat;
+		background-size: 270px 480px;
+	}
+}
+
+
+// Desktop
+@media only screen and (min-width: 768px) {
+	.main {
+		max-width: 960px;
+		height: 677px;
+	}
+
+	.description {
+		display: block;
+		font-family: Helvetica, Arial, san serif;
+		font-size: 50px;
+		line-height: 1.2;
+		font-weight: lighter;
+	}
+
+	.app-icon {
+		display: inline-block;
+		width: 76px;
+		height: 76px;
+		background: url('../imgs/Icon-76@2x.png') no-repeat;
+		background-size: 76px;
+		border-radius: 15px;
+		vertical-align: middle;
+	}
+
+	.app-name .name {
+		display: inline-block;
+		margin-left: 20px;
+		margin-top: 0;
+		font-size: 38px;
+		line-height: 76px;
+		vertical-align: middle;
+	}
+}
