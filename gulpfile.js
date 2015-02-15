@@ -35,7 +35,7 @@ var reload = browserSync.reload;
 // Styles
 
 gulp.task('less', function() {
-	gulp.src('./www/styles/main.less')
+	gulp.src('./styles/main.less')
 		.pipe(sourcemaps.init())
 		.pipe(less({
 			plugins: [autoprefix, cleancss],
@@ -46,21 +46,21 @@ gulp.task('less', function() {
 			]
 		}))
 		.pipe(sourcemaps.write())			// create the sourcemaps
-		.pipe(gulp.dest('./www/public/styles')) 	// write css file
+		.pipe(gulp.dest('./public/styles')) 	// write css file
 		.pipe(reload({ stream:true })); 	// reload the css in the browser
 });
 
 // Images
 
 gulp.task('images', function() {
-	gulp.src('./www/imgs/*')
-		.pipe(gulp.dest('./www/public/imgs'));
+	gulp.src('./imgs/*')
+		.pipe(gulp.dest('./public/imgs'));
 });
 
 // Templates
 
 gulp.task('handlebars', function() {
-	gulp.src('www/views/**/*.hbs')
+	gulp.src('views/**/*.hbs')
 		.pipe(handlebars())
 		.pipe(wrap('Handlebars.template(<%= contents %>)'))
 		.pipe(declare({
@@ -68,28 +68,28 @@ gulp.task('handlebars', function() {
 			noRedeclare: true, // Avoid duplicate declarations
 		}))
 		.pipe(concat('templates.js'))
-		.pipe(gulp.dest('www/public/scripts/'));
+		.pipe(gulp.dest('public/scripts/'));
 });
 
 // Scripts
 
 gulp.task('jscs', function() {
-	gulp.src('www/scripts/main.js')
+	gulp.src('scripts/main.js')
 		.pipe(jscs());
 });
 
 gulp.task('lint', function() {
-	gulp.src('www/scripts/*.js')
+	gulp.src('scripts/*.js')
 		.pipe(jshint('.jshintrc'))
 		.pipe(jshint.reporter('jshint-stylish'))
 		.pipe(jshint.reporter('fail'));
 });
 
 gulp.task('scripts', function() {
-	gulp.src('www/scripts/main.js')
+	gulp.src('scripts/main.js')
 		.pipe(concat('main.js'))
 		.pipe(uglify())
-		.pipe(gulp.dest('www/public/scripts'))
+		.pipe(gulp.dest('public/scripts'))
 });
 
 gulp.task('bower', function() {
@@ -97,28 +97,28 @@ gulp.task('bower', function() {
 	gulp.src(mainBowerFiles())
 		.pipe(filter('*.js'))
 		.pipe(uglify())
-		.pipe(gulp.dest('www/public/scripts/vendor'))
+		.pipe(gulp.dest('public/scripts/vendor'))
 		// exclude jquery and modernizr from being in the plugins js
 		.pipe(filter(['*', '!modernizr.*', '!jquery.*']))
 		.pipe(concat('plugins.js'))
-		.pipe(gulp.dest('www/public/scripts/vendor'));
+		.pipe(gulp.dest('public/scripts/vendor'));
 
 	// css
 	gulp.src(mainBowerFiles())
 		.pipe(filter('*.css'))
 		.pipe(cssmin())
-		.pipe(gulp.dest('www/public/styles/vendor'))
+		.pipe(gulp.dest('public/styles/vendor'))
 		// exclude normalize from being in the plugins css
 		.pipe(filter(['*', '!normalize.*']))
 		.pipe(concat('plugins.css'))
-		.pipe(gulp.dest('www/public/styles/vendor'));
+		.pipe(gulp.dest('public/styles/vendor'));
 });
 
 
 gulp.task('watch', function() {
 	browserSync({
 		server: {
-			baseDir: './www/'
+			baseDir: './'
 		}
 	});
 
